@@ -1,15 +1,24 @@
-import { Heading, UnorderedList, ListItem } from "@chakra-ui/react";
+import { Heading, UnorderedList, ListItem, Checkbox, Button, Center } from "@chakra-ui/react";
 
 const Index = () => {
   return (
     <>
       <title>My Todos</title>
-      <Heading mb={4}>My Todo List</Heading>
+      <Center>
+        <Heading mb={4}>My Todo List</Heading>
+      </Center>
       <UnorderedList>
-        <ListItem>Buy groceries</ListItem>
-        <ListItem>Do laundry</ListItem>
-        <ListItem>Clean the house</ListItem>
+        <ListItem>
+          <Checkbox>Buy groceries</Checkbox>
+        </ListItem>
+        <ListItem>
+          <Checkbox>Do laundry</Checkbox>
+        </ListItem>
+        <ListItem>
+          <Checkbox>Clean the house</Checkbox>
+        </ListItem>
       </UnorderedList>
+      <Button mt={4}>Add Todo</Button>
     </>
   );
 };
