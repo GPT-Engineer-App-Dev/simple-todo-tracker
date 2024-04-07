@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Heading, UnorderedList, ListItem, Checkbox, Button, Center, Input } from "@chakra-ui/react";
+import { Heading, UnorderedList, ListItem, Checkbox, Button, Center, Input, IconButton } from "@chakra-ui/react";
+
 
 const Index = () => {
   const [todos, setTodos] = useState([
@@ -19,6 +20,11 @@ const Index = () => {
     }
   };
 
+  const handleDeleteTodo = (id) => {
+    const updatedTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(updatedTodos);
+  };
+
   return (
     <>
       <title>My Todos</title>
@@ -29,6 +35,7 @@ const Index = () => {
         {todos.map((todo) => (
           <ListItem key={todo.id}>
             <Checkbox isChecked={todo.completed}>{todo.text}</Checkbox>
+            <IconButton ml={2} size="sm" icon="delete" onClick={() => handleDeleteTodo(todo.id)} />
           </ListItem>
         ))}
       </UnorderedList>
